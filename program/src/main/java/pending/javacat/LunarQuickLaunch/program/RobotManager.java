@@ -15,6 +15,9 @@ public enum RobotManager {
 
     void init() throws AWTException {
         robot = new Robot();
+
+        moveAndClick(800, 460);
+        closeWindow();
     }
 
     void moveAndClick(int x, int y) {

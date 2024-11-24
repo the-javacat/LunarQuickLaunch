@@ -4,14 +4,8 @@ public enum LunarQuickLaunch {
     INSTANCE;
 
     public void start() throws Exception {
-        ProcessManager.INSTANCE.checkIfLunarClientAlreadyRunning();
-
-        ProcessManager.INSTANCE.startLunarClient();
-        WindowManager.INSTANCE.startCheckingForWindow();
-
+        ProcessManager.INSTANCE.postBootStrap();
+        WindowManager.INSTANCE.postBootstrap();
         RobotManager.INSTANCE.init();
-
-        RobotManager.INSTANCE.moveAndClick(800, 460);
-        RobotManager.INSTANCE.closeWindow();
     }
 }

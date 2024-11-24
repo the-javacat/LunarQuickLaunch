@@ -15,6 +15,10 @@ public enum WindowManager {
     boolean windowOpened = false;
     private static final String WINDOW_NAME = "Home - Lunar Client";
 
+    public void postBootstrap() throws InterruptedException {
+        startCheckingForWindow();
+    }
+
     public void startCheckingForWindow() throws InterruptedException {
         User32 user32 = User32.INSTANCE;
         char[] buffer = new char[1024];

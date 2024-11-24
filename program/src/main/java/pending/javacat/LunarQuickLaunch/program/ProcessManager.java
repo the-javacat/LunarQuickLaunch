@@ -16,6 +16,11 @@ public enum ProcessManager {
     final String processName = "Lunar Client.exe";
     boolean running = false;
 
+    public void postBootStrap() throws Exception {
+        checkIfLunarClientAlreadyRunning();
+        startLunarClient();
+    }
+
     public void checkIfLunarClientAlreadyRunning() throws Exception {
         String command = "tasklist | findstr '" + processName + "'";
         Process process = new ProcessBuilder("powershell", "&", command).start();
