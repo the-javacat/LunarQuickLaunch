@@ -19,5 +19,5 @@ dependencies {
 launch4j {
     mainClassName = "pending.javacat.boot.LunarQuickLaunchBoot"
     icon = "${projectDir}/src/main/resources/logo.ico"
-    bundledJrePath = "${projectDir}/src/main/resources/temurin-23.0.1"
+    bundledJrePath = "${projectDir}/src/main/resources/jdk-21.0.5+11-jre"
 }

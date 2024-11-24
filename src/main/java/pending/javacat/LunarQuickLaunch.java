@@ -11,7 +11,7 @@ public enum LunarQuickLaunch {
 
         RobotManager.INSTANCE.init();
 
-        RobotManager.INSTANCE.moveAndClick(800, 500);
+        RobotManager.INSTANCE.moveAndClick(800, 460);
         RobotManager.INSTANCE.closeWindow();
     }
 }
