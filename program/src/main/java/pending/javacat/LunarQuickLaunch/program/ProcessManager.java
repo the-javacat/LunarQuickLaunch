@@ -1,21 +1,24 @@
-package pending.javacat;
+package pending.javacat.LunarQuickLaunch.program;
 
-import pending.javacat.util.StringManager;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import static pending.javacat.LunarQuickLaunch.program.util.StringUtil.encloseString;
+
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public enum ProcessManager {
     INSTANCE;
-    private final String LUNAR_PATH = "C:\\Users\\Blaz\\AppData\\Local\\Programs\\Lunar Client\\Lunar Client.exe";
-    private Process process = null;
-    private final String processName = "Lunar Client.exe";
-    private final String command = "tasklist | findstr '" + processName + "'";
+    final static String LUNAR_PATH = "C:\\Users\\Blaz\\AppData\\Local\\Programs\\Lunar Client\\Lunar Client.exe";
+    final String processName = "Lunar Client.exe";
     boolean running = false;
 
     public void checkIfLunarClientAlreadyRunning() throws Exception {
-        process = new ProcessBuilder("powershell", "&", command).start();
+        String command = "tasklist | findstr '" + processName + "'";
+        Process process = new ProcessBuilder("powershell", "&", command).start();
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
         if (reader.lines().anyMatch(line -> line.contains(processName))) running = true;
@@ -28,6 +31,6 @@ public enum ProcessManager {
     }
 
     public void startLunarClient() throws Exception {
-        new ProcessBuilder("powershell", "&", StringManager.INSTANCE.encloseString(LUNAR_PATH, "'")).start();
+        new ProcessBuilder("powershell", "&", encloseString(LUNAR_PATH, "'")).start();
     }
 }

@@ -1,15 +1,19 @@
-package pending.javacat;
+package pending.javacat.LunarQuickLaunch.program;
 
 import com.sun.jna.Native;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
 import java.time.Duration;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public enum WindowManager {
     INSTANCE;
     boolean windowOpened = false;
+    private static final String WINDOW_NAME = "Home - Lunar Client";
 
     public void startCheckingForWindow() throws InterruptedException {
         User32 user32 = User32.INSTANCE;
@@ -27,7 +31,7 @@ public enum WindowManager {
                 String windowTitle = Native.toString(buffer);
                 System.out.println("New Window Detected: " + windowTitle);
 
-                if (windowTitle.contains("Home - Lunar Client")) {
+                if (windowTitle.contains(WINDOW_NAME)) {
                     windowOpened = true;
                     break;
                 }

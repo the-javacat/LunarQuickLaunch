@@ -1,13 +1,17 @@
-package pending.javacat;
+package pending.javacat.LunarQuickLaunch.program;
+
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public enum RobotManager {
     INSTANCE;
 
-    private Robot robot;
+    Robot robot;
 
     void init() throws AWTException {
         robot = new Robot();

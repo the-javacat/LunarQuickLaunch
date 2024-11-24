@@ -1,4 +1,4 @@
-package pending.javacat;
+package pending.javacat.LunarQuickLaunch.program;
 
 public enum LunarQuickLaunch {
     INSTANCE;
