@@ -5,8 +5,10 @@ plugins {
     id("io.freefair.lombok") version "8.11"
 }
 
-group = "pending.javacat.LunarQuickLaunch"
-version = "1.0-SNAPSHOT"
+allprojects {
+    group = "pending.javacat.LunarQuickLaunch"
+    version = "1.0-SNAPSHOT"
+}
 
 configure(subprojects) {
     apply(plugin = "java")
