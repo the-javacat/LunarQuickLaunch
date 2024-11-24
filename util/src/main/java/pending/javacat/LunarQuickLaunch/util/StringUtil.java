@@ -1,4 +1,4 @@
-package pending.javacat.LunarQuickLaunch.program.util;
+package pending.javacat.LunarQuickLaunch.util;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

@@ -1,4 +1,4 @@
-package pending.javacat.LunarQuickLaunch.program;
+package pending.javacat.LunarQuickLaunch.manager;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import static pending.javacat.LunarQuickLaunch.program.util.StringUtil.encloseString;
+import static pending.javacat.LunarQuickLaunch.util.StringUtil.encloseString;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public enum ProcessManager {

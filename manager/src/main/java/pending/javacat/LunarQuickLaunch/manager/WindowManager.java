@@ -1,4 +1,4 @@
-package pending.javacat.LunarQuickLaunch.program;
+package pending.javacat.LunarQuickLaunch.manager;
 
 import com.sun.jna.Native;
 import com.sun.jna.platform.win32.User32;

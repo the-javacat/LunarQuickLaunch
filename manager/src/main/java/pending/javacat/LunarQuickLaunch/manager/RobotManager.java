@@ -1,4 +1,4 @@
-package pending.javacat.LunarQuickLaunch.program;
+package pending.javacat.LunarQuickLaunch.manager;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -13,7 +13,7 @@ public enum RobotManager {
 
     Robot robot;
 
-    void init() throws AWTException {
+    public void init() throws AWTException {
         robot = new Robot();
 
         moveAndClick(800, 460);
