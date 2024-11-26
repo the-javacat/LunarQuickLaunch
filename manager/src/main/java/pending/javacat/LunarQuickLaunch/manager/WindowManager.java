@@ -8,12 +8,13 @@ import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
 import java.time.Duration;
+import java.util.HashSet;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public enum WindowManager {
     INSTANCE;
     boolean windowOpened = false;
-    private static final String WINDOW_NAME = "Home - Lunar Client";
+    private static final HashSet<String> WINDOW_NAMES = new HashSet<>(){{add("Home - Lunar Client");add("lunarclient");}};
 
     public void postBootstrap() throws InterruptedException {
         startCheckingForWindow();
@@ -35,10 +36,13 @@ public enum WindowManager {
                 String windowTitle = Native.toString(buffer);
                 System.out.println("New Window Detected: " + windowTitle);
 
-                if (windowTitle.contains(WINDOW_NAME)) {
-                    windowOpened = true;
-                    break;
-                }
+                WINDOW_NAMES.forEach(windowName -> {
+                    if (windowTitle.contains(windowName)) {
+                        windowOpened = true;
+                    }
+                });
+
+                if(windowOpened) break;
             }
         }
 
